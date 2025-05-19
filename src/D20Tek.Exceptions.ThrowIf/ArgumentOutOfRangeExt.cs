@@ -1,5 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
-using System.Runtime.CompilerServices;
+﻿using System.Runtime.CompilerServices;
 
 namespace D20Tek.Exceptions.ThrowIf;
 
@@ -9,11 +8,11 @@ public class ArgumentOutOfRangeExceptionExt : ArgumentOutOfRangeException
         T value, T min, T max, [CallerArgumentExpression(nameof(value))] string paramName = "none")
         where T : IComparable<T>
     {
-        if (min.CompareTo(max) > 0) 
-            throw new ArgumentOutOfRangeException(paramName, string.Format(ArgumentOutOfRange_MinMax, min, max));
+        if (min.CompareTo(max) > 0)
+            throw CreateException(min, max, paramName, ArgumentOutOfRange_MinMax);
 
         if (value.CompareTo(min) < 0 || value.CompareTo(max) > 0)
-            ThrowOutOfRange(value, min, max, paramName, ArgumentOutOfRange_MustBeInRange);
+            throw CreateException(value, min, max, paramName, ArgumentOutOfRange_MustBeInRange);
     }
 
     public static void ThrowIfOutOfRangeExclusive<T>(
@@ -21,10 +20,10 @@ public class ArgumentOutOfRangeExceptionExt : ArgumentOutOfRangeException
         where T : IComparable<T>
     {
         if (min.CompareTo(max) > 0)
-            throw new ArgumentOutOfRangeException(paramName, string.Format(ArgumentOutOfRange_MinMax, min, max));
+            throw CreateException(min, max, paramName, ArgumentOutOfRange_MinMax);
 
         if (value.CompareTo(min) <= 0 || value.CompareTo(max) >= 0)
-            ThrowOutOfRange(value, min, max, paramName, ArgumentOutOfRange_MustBeInRangeExclusive);
+            throw CreateException(value, min, max, paramName, ArgumentOutOfRange_MustBeInRangeExclusive);
     }
 
     public const string ArgumentOutOfRange_MinMax =
@@ -34,10 +33,11 @@ public class ArgumentOutOfRangeExceptionExt : ArgumentOutOfRangeException
     public const string ArgumentOutOfRange_MustBeInRangeExclusive =
         "The value '{0}' for parameter '{1}' must be in the range ({2}, {3}) - excluding the min max.";
 
-    [DoesNotReturn]
-    private static void ThrowOutOfRange<T>(T value , T min, T max, string paramName, string messageFormat) =>
-        throw new ArgumentOutOfRangeException(
-            paramName,
-            value,
-            string.Format(messageFormat, value, paramName, min, max));
+    private static ArgumentOutOfRangeException CreateException<T>(
+        T min, T max, string paramName, string messageFormat) =>
+        new(paramName, string.Format(messageFormat, min, max));
+
+    private static ArgumentOutOfRangeException CreateException<T>(
+        T value , T min, T max, string paramName, string messageFormat) =>
+        new(paramName, value, string.Format(messageFormat, value, paramName, min, max));
 }
