@@ -4,6 +4,25 @@
     <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Title>Exceptions.ThrowIf Extensions</Title>
+    <Authors>d20Tek</Authors>
+    <Company>d20Tek</Company>
+    <Copyright>Copyright (c) d20Tek.  All rights reserved</Copyright>
+    <Description>Extensions to the ArgumentException.ThrowIf methods to cover more scenarios and additional exception types. 
+.Net provides a basic set of ThrowIf extension methods, and this library adds to that list.</Description>
+    <PackageProjectUrl>https://github.com/d20Tek/exceptions-throwif</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/d20Tek/exceptions-throwif</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>exceptions; throw; throwif; throw-if</PackageTags>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
 </Project>
