@@ -115,4 +115,21 @@ public class ExceptionExtTests
         var ex = Assert.ThrowsException<ArgumentException>([ExcludeFromCodeCoverage] () =>
             ExceptionExt.ThrowIfNot<ArgumentException>(() => false, "Invalid argument provided"));
     }
+
+    public class MyCustomException : Exception
+    {
+        public MyCustomException(string message)
+            :base(message) { }
+    }
+
+    [TestMethod]
+    public void ThrowIf_WithCustomException()
+    {
+        int v = 12;
+        ExceptionExt.ThrowIf<MyCustomException>(() => v < 0, "Invalid value, use custom exception");
+
+        var ex = Assert.ThrowsException<MyCustomException>([ExcludeFromCodeCoverage] () =>
+            ExceptionExt.ThrowIf<MyCustomException>(() => v >= 10, "Invalid value, use custom exception - this one throws"));
+    }
+
 }
