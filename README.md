@@ -53,7 +53,9 @@ There is also a helper ThrowIf extension that lets you throw any exception type 
 Note: the custom exception class must derive from Exception, and it must have at minimum one constructor that takes a message as a string.
 
 ## Samples
-Samples will be coming soon...
+For more detailed examples on how to use D20Tek.Exceptions.ThrowIf, please review the following samples:
+
+* [SampleCli](samples/SampleCli) - A simple console application that tests out all of the new ThrowIf functions.
 
 ## Feedback
 If you use this library and have any feedback, bugs, or suggestions, please file them in the Issues section of this repository. I'm still in the process of building the library and samples, so any suggestions that would make it more useable are welcome.
