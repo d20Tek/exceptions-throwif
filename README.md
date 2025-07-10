@@ -11,7 +11,7 @@ In the future, we may support more exception types and extensions to make Except
 This library is a NuGet package so it is easy to add to your project. To install the package into your solution, you can use the NuGet Package Manager. In PM, please use the following command:
 
 ```cmd
-PM > Install-Package D20Tek.Exceptions.ThrowIf -Version 1.0.0
+PM > Install-Package D20Tek.Exceptions.ThrowIf --version 0.9.2
 ```
 
 To install in the Visual Studio UI, go to the Tools menu > "Manage NuGet Packages". Then search for D20Tek.Exceptions.ThrowIf, and install whichever packages you require from there.
