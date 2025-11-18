@@ -11,13 +11,13 @@ In the future, we may support more exception types and extensions to make Except
 This library is a NuGet package so it is easy to add to your project. To install the package into your solution, you can use the NuGet Package Manager. In PM, please use the following command:
 
 ```cmd
-PM > Install-Package D20Tek.Exceptions.ThrowIf --version 0.9.2
+PM > Install-Package D20Tek.Exceptions.ThrowIf --version 0.9.3
 ```
 
 To install in the Visual Studio UI, go to the Tools menu > "Manage NuGet Packages". Then search for D20Tek.Exceptions.ThrowIf, and install whichever packages you require from there.
 
 ## Usage
-Once you've installed the NuGet package, you can start using it in your .NET projects. It's as easy has using the D20Tek.Exceptions.ThrowIf namespace and calling the exception extension.
+Once you've installed the NuGet package, you can start using it in your .NET projects. It's as easy as using the D20Tek.Exceptions.ThrowIf namespace and calling the exception extension.
 
 Here is an example of using it to check whether an array is null or empty:
 
