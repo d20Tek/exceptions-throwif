@@ -32,7 +32,7 @@ public class InvalidEnumArgumentExtTests
         var test = (TestType)99;
 
         // assert
-        Assert.ThrowsException<InvalidEnumArgumentException>([ExcludeFromCodeCoverage] () =>
+        Assert.ThrowsExactly<InvalidEnumArgumentException>([ExcludeFromCodeCoverage] () =>
             InvalidEnumArgumentExceptionExt.ThrowIfInvalidEnum(test));
     }
 }

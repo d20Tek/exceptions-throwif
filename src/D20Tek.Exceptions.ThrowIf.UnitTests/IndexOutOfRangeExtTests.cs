@@ -22,7 +22,7 @@ public class IndexOutOfRangeExtTests
         int[] list = [];
 
         // assert
-        var ex = Assert.ThrowsException<IndexOutOfRangeException>([ExcludeFromCodeCoverage] () =>
+        var ex = Assert.ThrowsExactly<IndexOutOfRangeException>([ExcludeFromCodeCoverage] () =>
             IndexOutOfRangeExceptionExt.ThrowIf(list, -1));
     }
 
@@ -33,7 +33,7 @@ public class IndexOutOfRangeExtTests
         int[] list = [1, 2, 3];
 
         // assert
-        var ex = Assert.ThrowsException<IndexOutOfRangeException>([ExcludeFromCodeCoverage] () =>
+        var ex = Assert.ThrowsExactly<IndexOutOfRangeException>([ExcludeFromCodeCoverage] () =>
             IndexOutOfRangeExceptionExt.ThrowIf(list, 8));
     }
 
@@ -44,7 +44,7 @@ public class IndexOutOfRangeExtTests
         int[] list = [];
 
         // assert
-        var ex = Assert.ThrowsException<IndexOutOfRangeException>([ExcludeFromCodeCoverage] () =>
+        var ex = Assert.ThrowsExactly<IndexOutOfRangeException>([ExcludeFromCodeCoverage] () =>
             IndexOutOfRangeExceptionExt.ThrowIf(list, 0));
     }
 
@@ -55,7 +55,7 @@ public class IndexOutOfRangeExtTests
         int[]? list = null;
 
         // assert
-        var ex = Assert.ThrowsException<ArgumentNullException>([ExcludeFromCodeCoverage] () =>
+        var ex = Assert.ThrowsExactly<ArgumentNullException>([ExcludeFromCodeCoverage] () =>
             IndexOutOfRangeExceptionExt.ThrowIf(list, 0));
     }
 }

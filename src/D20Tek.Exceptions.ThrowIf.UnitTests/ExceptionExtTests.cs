@@ -22,7 +22,7 @@ public class ExceptionExtTests
         // arrange
 
         // assert
-        var ex = Assert.ThrowsException<ArgumentException>([ExcludeFromCodeCoverage] () =>
+        var ex = Assert.ThrowsExactly<ArgumentException>([ExcludeFromCodeCoverage] () =>
             ExceptionExt.ThrowIf<ArgumentException>(true, "Invalid argument provided"));
     }
 
@@ -32,7 +32,7 @@ public class ExceptionExtTests
         // arrange
 
         // assert
-        var ex = Assert.ThrowsException<InvalidOperationException>([ExcludeFromCodeCoverage] () =>
+        var ex = Assert.ThrowsExactly<InvalidOperationException>([ExcludeFromCodeCoverage] () =>
             ExceptionExt.ThrowIf<InvalidOperationException>(true, "Invalid operation"));
     }
 
@@ -42,7 +42,7 @@ public class ExceptionExtTests
         // arrange
 
         // assert
-        var ex = Assert.ThrowsException<MissingMethodException>([ExcludeFromCodeCoverage] () =>
+        var ex = Assert.ThrowsExactly<MissingMethodException>([ExcludeFromCodeCoverage] () =>
             ExceptionExt.ThrowIf<ExceptionWithoutStringConstructor>(true, "No message constructor"));
     }
 
@@ -70,7 +70,7 @@ public class ExceptionExtTests
         // arrange
 
         // assert
-        var ex = Assert.ThrowsException<ArgumentException>([ExcludeFromCodeCoverage] () =>
+        var ex = Assert.ThrowsExactly<ArgumentException>([ExcludeFromCodeCoverage] () =>
             ExceptionExt.ThrowIfNot<ArgumentException>(false, "Invalid argument provided"));
     }
 
@@ -91,7 +91,7 @@ public class ExceptionExtTests
         // arrange
 
         // assert
-        var ex = Assert.ThrowsException<ArgumentException>([ExcludeFromCodeCoverage] () =>
+        var ex = Assert.ThrowsExactly<ArgumentException>([ExcludeFromCodeCoverage] () =>
             ExceptionExt.ThrowIf<ArgumentException>(() => true, "Invalid argument provided"));
     }
 
@@ -112,7 +112,7 @@ public class ExceptionExtTests
         // arrange
 
         // assert
-        var ex = Assert.ThrowsException<ArgumentException>([ExcludeFromCodeCoverage] () =>
+        var ex = Assert.ThrowsExactly<ArgumentException>([ExcludeFromCodeCoverage] () =>
             ExceptionExt.ThrowIfNot<ArgumentException>(() => false, "Invalid argument provided"));
     }
 
@@ -128,7 +128,7 @@ public class ExceptionExtTests
         int v = 12;
         ExceptionExt.ThrowIf<MyCustomException>(() => v < 0, "Invalid value, use custom exception");
 
-        var ex = Assert.ThrowsException<MyCustomException>([ExcludeFromCodeCoverage] () =>
+        var ex = Assert.ThrowsExactly<MyCustomException>([ExcludeFromCodeCoverage] () =>
             ExceptionExt.ThrowIf<MyCustomException>(() => v >= 10, "Invalid value, use custom exception - this one throws"));
     }
 

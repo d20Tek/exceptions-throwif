@@ -23,7 +23,7 @@ public class ArgumentNullExtDefaultTests
         string? test = null;
 
         // assert
-        var ex = Assert.ThrowsException<ArgumentNullException>([ExcludeFromCodeCoverage] () =>
+        var ex = Assert.ThrowsExactly<ArgumentNullException>([ExcludeFromCodeCoverage] () =>
             ArgumentNullExceptionExt.ThrowIfNullOrDefault(test));
 
         Assert.AreEqual(nameof(test), ex.ParamName);
@@ -47,7 +47,7 @@ public class ArgumentNullExtDefaultTests
         int number = 0;
 
         // assert
-        var ex = Assert.ThrowsException<ArgumentException>([ExcludeFromCodeCoverage] () =>
+        var ex = Assert.ThrowsExactly<ArgumentException>([ExcludeFromCodeCoverage] () =>
             ArgumentNullExceptionExt.ThrowIfNullOrDefault(number));
 
         Assert.AreEqual(nameof(number), ex.ParamName);
@@ -60,7 +60,7 @@ public class ArgumentNullExtDefaultTests
         var date = DateTime.MinValue;
 
         // assert
-        var ex = Assert.ThrowsException<ArgumentException>([ExcludeFromCodeCoverage] () =>
+        var ex = Assert.ThrowsExactly<ArgumentException>([ExcludeFromCodeCoverage] () =>
             ArgumentNullExceptionExt.ThrowIfNullOrDefault(date));
 
         Assert.AreEqual(nameof(date), ex.ParamName);
@@ -85,7 +85,7 @@ public class ArgumentNullExtDefaultTests
         var id = default(Guid);
 
         // assert
-        var ex = Assert.ThrowsException<ArgumentException>([ExcludeFromCodeCoverage] () =>
+        var ex = Assert.ThrowsExactly<ArgumentException>([ExcludeFromCodeCoverage] () =>
             ArgumentNullExceptionExt.ThrowIfNullOrDefault(id));
 
         Assert.AreEqual(nameof(id), ex.ParamName);
@@ -110,7 +110,7 @@ public class ArgumentNullExtDefaultTests
         var value = default(MyStruct);
 
         // assert
-        var ex = Assert.ThrowsException<ArgumentException>([ExcludeFromCodeCoverage] () =>
+        var ex = Assert.ThrowsExactly<ArgumentException>([ExcludeFromCodeCoverage] () =>
             ArgumentNullExceptionExt.ThrowIfNullOrDefault(value));
 
         Assert.AreEqual(nameof(value), ex.ParamName);

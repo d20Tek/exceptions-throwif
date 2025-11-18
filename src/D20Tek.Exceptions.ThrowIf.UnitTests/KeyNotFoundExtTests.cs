@@ -35,7 +35,7 @@ public class KeyNotFoundExtTests
         };
 
         // assert
-        var ex = Assert.ThrowsException<KeyNotFoundException>([ExcludeFromCodeCoverage] () =>
+        var ex = Assert.ThrowsExactly<KeyNotFoundException>([ExcludeFromCodeCoverage] () =>
             KeyNotFoundExt.ThrowIf(dict, "ten"));
     }
 
@@ -46,7 +46,7 @@ public class KeyNotFoundExtTests
         var dict = new Dictionary<string, int>();
 
         // assert
-        var ex = Assert.ThrowsException<KeyNotFoundException>([ExcludeFromCodeCoverage] () =>
+        var ex = Assert.ThrowsExactly<KeyNotFoundException>([ExcludeFromCodeCoverage] () =>
             KeyNotFoundExt.ThrowIf(dict, "one"));
     }
 
@@ -57,7 +57,7 @@ public class KeyNotFoundExtTests
         Dictionary<string, int>? dict = null;
 
         // assert
-        var ex = Assert.ThrowsException<ArgumentNullException>([ExcludeFromCodeCoverage] () =>
+        var ex = Assert.ThrowsExactly<ArgumentNullException>([ExcludeFromCodeCoverage] () =>
             KeyNotFoundExt.ThrowIf(dict, "one"));
     }
 }

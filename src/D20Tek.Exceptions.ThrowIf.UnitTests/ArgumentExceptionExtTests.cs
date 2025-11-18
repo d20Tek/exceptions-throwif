@@ -34,7 +34,7 @@ public class ArgumentExceptionExtTests
         Type checkType = typeof(FileStream);
 
         // act
-        var ex = Assert.ThrowsException<ArgumentException>([ExcludeFromCodeCoverage] () =>
+        var ex = Assert.ThrowsExactly<ArgumentException>([ExcludeFromCodeCoverage] () =>
             ArgumentExceptionExt.ThrowIfNotAssignableTo<string>(checkType));
 
         // assert
@@ -48,7 +48,7 @@ public class ArgumentExceptionExtTests
         Type? nullType = null;
 
         // act
-        var ex = Assert.ThrowsException<ArgumentNullException>([ExcludeFromCodeCoverage] () =>
+        var ex = Assert.ThrowsExactly<ArgumentNullException>([ExcludeFromCodeCoverage] () =>
             ArgumentExceptionExt.ThrowIfNotAssignableTo<string>(nullType!));
 
         // assert
@@ -72,7 +72,7 @@ public class ArgumentExceptionExtTests
         // arrange
 
         // act
-        var ex = Assert.ThrowsException<ArgumentException>([ExcludeFromCodeCoverage] () =>
+        var ex = Assert.ThrowsExactly<ArgumentException>([ExcludeFromCodeCoverage] () =>
             ArgumentExceptionExt.ThrowIfNotAssignableTo<ICloneable>(typeof(FileStream)));
 
         // assert

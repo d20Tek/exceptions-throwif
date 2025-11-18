@@ -24,7 +24,7 @@ public class ArgumentNullExtTests
         int[] list = [];
 
         // assert
-        var ex = Assert.ThrowsException<ArgumentException>([ExcludeFromCodeCoverage] () =>
+        var ex = Assert.ThrowsExactly<ArgumentException>([ExcludeFromCodeCoverage] () =>
             ArgumentNullExceptionExt.ThrowIfNullOrEmpty(list));
 
         Assert.AreEqual(nameof(list), ex.ParamName);
@@ -37,7 +37,7 @@ public class ArgumentNullExtTests
         List<string>? list = null;
 
         // assert
-        var ex = Assert.ThrowsException<ArgumentNullException>([ExcludeFromCodeCoverage] () =>
+        var ex = Assert.ThrowsExactly<ArgumentNullException>([ExcludeFromCodeCoverage] () =>
             ArgumentNullExceptionExt.ThrowIfNullOrEmpty(list));
 
         Assert.AreEqual(nameof(list), ex.ParamName);
@@ -67,7 +67,7 @@ public class ArgumentNullExtTests
         var dict = new Dictionary<int, string>();
 
         // assert
-        var ex = Assert.ThrowsException<ArgumentException>([ExcludeFromCodeCoverage] () =>
+        var ex = Assert.ThrowsExactly<ArgumentException>([ExcludeFromCodeCoverage] () =>
             ArgumentNullExceptionExt.ThrowIfNullOrEmpty(dict));
 
         Assert.AreEqual(nameof(dict), ex.ParamName);
@@ -80,7 +80,7 @@ public class ArgumentNullExtTests
         IDictionary<int, string>? dict = null;
 
         // assert
-        var ex = Assert.ThrowsException<ArgumentNullException>([ExcludeFromCodeCoverage] () =>
+        var ex = Assert.ThrowsExactly<ArgumentNullException>([ExcludeFromCodeCoverage] () =>
             ArgumentNullExceptionExt.ThrowIfNullOrEmpty(dict!));
 
         Assert.AreEqual(nameof(dict), ex.ParamName);
