@@ -1,5 +1,4 @@
-﻿// See https://aka.ms/new-console-template for more information
-using D20Tek.Exceptions.ThrowIf;
+﻿using D20Tek.Exceptions.ThrowIf;
 
 Console.WriteLine("ThrowIf Samples...");
 
