@@ -14,10 +14,8 @@ public sealed class ArgumentOutOfRangeExtTests
     {
         // arrange
 
-        // act
+        // act - assert
         ArgumentOutOfRangeExceptionExt.ThrowIfOutOfRange(check, min, max);
-
-        // assert
     }
 
     [TestMethod]
@@ -41,10 +39,8 @@ public sealed class ArgumentOutOfRangeExtTests
         // arrange
         var check = 3.14f;
 
-        // act
+        // act - assert
         ArgumentOutOfRangeExceptionExt.ThrowIfOutOfRange(check, 1.0f, 10.0f);
-
-        // assert
     }
 
     [TestMethod]
@@ -53,7 +49,7 @@ public sealed class ArgumentOutOfRangeExtTests
         // arrange
         var check = 10.35f;
 
-        // act
+        // act - assert
         Assert.ThrowsExactly<ArgumentOutOfRangeException>([ExcludeFromCodeCoverage] () =>
             ArgumentOutOfRangeExceptionExt.ThrowIfOutOfRange(check, 1.0f, 10.0f));
     }
@@ -64,10 +60,8 @@ public sealed class ArgumentOutOfRangeExtTests
         // arrange
         var check = 5;
 
-        // act
+        // act - assert
         ArgumentOutOfRangeExceptionExt.ThrowIfOutOfRangeExclusive(check, 1, 10);
-
-        // assert
     }
 
     [TestMethod]
@@ -81,7 +75,7 @@ public sealed class ArgumentOutOfRangeExtTests
     {
         // arrange
 
-        // assert
+        // act - assert
         var ex = Assert.ThrowsExactly<ArgumentOutOfRangeException>([ExcludeFromCodeCoverage] () =>
             ArgumentOutOfRangeExceptionExt.ThrowIfOutOfRangeExclusive(check, min, max));
 
@@ -94,10 +88,8 @@ public sealed class ArgumentOutOfRangeExtTests
         // arrange
         var check = 3.14M;
 
-        // act
+        // act - assert
         ArgumentOutOfRangeExceptionExt.ThrowIfOutOfRangeExclusive(check, 1.0M, 10.0M);
-
-        // assert
     }
 
     [TestMethod]
@@ -106,7 +98,7 @@ public sealed class ArgumentOutOfRangeExtTests
         // arrange
         var check = 10.35m;
 
-        // act
+        // act - assert
         Assert.ThrowsExactly<ArgumentOutOfRangeException>([ExcludeFromCodeCoverage] () =>
             ArgumentOutOfRangeExceptionExt.ThrowIfOutOfRange(check, 1.0m, 10.0m));
     }

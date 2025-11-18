@@ -10,10 +10,8 @@ public class ExceptionExtTests
     {
         // arrange
 
-        // act
+        // act - assert
         ExceptionExt.ThrowIf<InvalidOperationException>(false, "This should not be thrown");
-
-        // assert
     }
 
     [TestMethod]
@@ -58,10 +56,8 @@ public class ExceptionExtTests
     {
         // arrange
 
-        // act
+        // act - assert
         ExceptionExt.ThrowIfNot<InvalidOperationException>(true, "This should not be thrown");
-
-        // assert
     }
 
     [TestMethod]
@@ -79,10 +75,8 @@ public class ExceptionExtTests
     {
         // arrange
 
-        // act
+        // act - assert
         ExceptionExt.ThrowIf<InvalidOperationException>(() => false, "This should not be thrown");
-
-        // assert
     }
 
     [TestMethod]
@@ -100,10 +94,8 @@ public class ExceptionExtTests
     {
         // arrange
 
-        // act
+        // act - assert
         ExceptionExt.ThrowIfNot<InvalidOperationException>(() => true, "This should not be thrown");
-
-        // assert
     }
 
     [TestMethod]
@@ -125,9 +117,11 @@ public class ExceptionExtTests
     [TestMethod]
     public void ThrowIf_WithCustomException()
     {
+        // arrange
         int v = 12;
         ExceptionExt.ThrowIf<MyCustomException>(() => v < 0, "Invalid value, use custom exception");
 
+        // act - assert
         var ex = Assert.ThrowsExactly<MyCustomException>([ExcludeFromCodeCoverage] () =>
             ExceptionExt.ThrowIf<MyCustomException>(() => v >= 10, "Invalid value, use custom exception - this one throws"));
     }

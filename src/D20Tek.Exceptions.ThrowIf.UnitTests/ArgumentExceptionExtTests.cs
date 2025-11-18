@@ -10,10 +10,8 @@ public class ArgumentExceptionExtTests
     {
         // arrange
 
-        // act
+        // act - assert
         ArgumentExceptionExt.ThrowIfNotAssignableTo<Stream>(typeof(Stream));
-
-        // assert
     }
 
     [TestMethod]
@@ -21,10 +19,8 @@ public class ArgumentExceptionExtTests
     {
         // arrange
 
-        // act
+        // act - assert
         ArgumentExceptionExt.ThrowIfNotAssignableTo<Stream>(typeof(FileStream));
-
-        // assert
     }
 
     [TestMethod]
@@ -60,10 +56,8 @@ public class ArgumentExceptionExtTests
     {
         // arrange
 
-        // act
+        // act - assert
         ArgumentExceptionExt.ThrowIfNotAssignableTo<IDisposable>(typeof(FileStream));
-
-        // assert
     }
 
     [TestMethod]

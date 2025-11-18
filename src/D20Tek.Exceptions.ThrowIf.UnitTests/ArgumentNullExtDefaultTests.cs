@@ -10,10 +10,8 @@ public class ArgumentNullExtDefaultTests
     {
         // arrange
 
-        // act
+        // act - assert
         ArgumentNullExceptionExt.ThrowIfNullOrDefault("valid string", "paramName");
-
-        // assert
     }
 
     [TestMethod]
@@ -34,10 +32,8 @@ public class ArgumentNullExtDefaultTests
     {
         // arrange
 
-        // act
+        // act - assert
         ArgumentNullExceptionExt.ThrowIfNullOrDefault(123, "number");
-
-        // assert
     }
 
     [TestMethod]
@@ -72,10 +68,8 @@ public class ArgumentNullExtDefaultTests
         // arrange
         var date = DateTime.Now;
 
-        // act
+        // act - assert
         ArgumentNullExceptionExt.ThrowIfNullOrDefault(date);
-
-        // assert
     }
 
     [TestMethod]
@@ -97,10 +91,8 @@ public class ArgumentNullExtDefaultTests
         // arrange
         var id = Guid.NewGuid();
 
-        // act
+        // act - assert
         ArgumentNullExceptionExt.ThrowIfNullOrDefault(id);
-
-        // assert
     }
 
     [TestMethod]

@@ -11,10 +11,8 @@ public class ArgumentNullExtTests
         // arrange
         var list = new int[] { 3, 7, 5, 9 };
 
-        // act
+        // act - assert
         ArgumentNullExceptionExt.ThrowIfNullOrEmpty(list);
-
-        // assert
     }
 
     [TestMethod]
@@ -54,10 +52,8 @@ public class ArgumentNullExtTests
             { 5, "Five" }
         };
 
-        // act
+        // act - assert
         ArgumentNullExceptionExt.ThrowIfNullOrEmpty(dict);
-
-        // assert
     }
 
     [TestMethod]

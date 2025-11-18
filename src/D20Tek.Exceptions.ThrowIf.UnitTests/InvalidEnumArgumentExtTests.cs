@@ -19,10 +19,8 @@ public class InvalidEnumArgumentExtTests
         // arrange
         var test = TestType.Some;
 
-        // act
+        // act - assert
         InvalidEnumArgumentExceptionExt.ThrowIfInvalidEnum(test);
-
-        // assert
     }
 
     [TestMethod]
