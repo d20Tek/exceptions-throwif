@@ -48,20 +48,20 @@ try
 catch (ArgumentException) { }
 
 // argument out of range
-ArgumentOutOfRangeExceptionExt.ThrowIfOutOfRange(5, 1, 10);
+ArgumentOutOfRangeException.ThrowIfOutOfRange(5, 1, 10);
 
 try
 {
-    ArgumentOutOfRangeExceptionExt.ThrowIfOutOfRange(15, 1, 10);
+    ArgumentOutOfRangeException.ThrowIfOutOfRange(15, 1, 10);
 }
 catch (ArgumentOutOfRangeException) { }
 
 // argument out of range (exclusive
-ArgumentOutOfRangeExceptionExt.ThrowIfOutOfRangeExclusive(5, 1, 10);
+ArgumentOutOfRangeException.ThrowIfOutOfRangeExclusive(5, 1, 10);
 
 try
 {
-    ArgumentOutOfRangeExceptionExt.ThrowIfOutOfRangeExclusive(10, 1, 10);
+    ArgumentOutOfRangeException.ThrowIfOutOfRangeExclusive(10, 1, 10);
 }
 catch (ArgumentOutOfRangeException) { }
 
