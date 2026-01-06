@@ -12,6 +12,6 @@ public class NotImplementedExtTests
 
         // assert
         var ex = Assert.ThrowsExactly<NotImplementedException>([ExcludeFromCodeCoverage] () =>
-            NotImplementedExceptionExt.Throw());
+            NotImplementedException.Throw());
     }
 }

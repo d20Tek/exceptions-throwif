@@ -1,6 +1,12 @@
-﻿namespace D20Tek.Exceptions.ThrowIf;
+﻿using System.Diagnostics.CodeAnalysis;
 
-public class NotImplementedExceptionExt : NotImplementedException
+namespace D20Tek.Exceptions.ThrowIf;
+
+public static class NotImplementedExt
 {
-    public static void Throw() => throw new NotImplementedException();
+    extension(NotImplementedException)
+    {
+        [DoesNotReturn]
+        public static void Throw() => throw new NotImplementedException();
+    }
 }

@@ -75,18 +75,18 @@ try
 catch (IndexOutOfRangeException) { }
 
 // dictionary key checks
-KeyNotFoundExt.ThrowIf(dict, "two");
+KeyNotFoundException.ThrowIf(dict, "two");
 
 try
 {
-    KeyNotFoundExt.ThrowIf(dict, "none");
+    KeyNotFoundException.ThrowIf(dict, "none");
 }
 catch (KeyNotFoundException) { }
 
 // not implemented exception
 try
 {
-    NotImplementedExceptionExt.Throw();
+    NotImplementedException.Throw();
 }
 catch (NotImplementedException) { }
 
