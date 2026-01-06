@@ -16,6 +16,7 @@
     <RepositoryUrl>https://github.com/d20Tek/exceptions-throwif</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>exceptions; throw; throwif; throw-if</PackageTags>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
