@@ -3,7 +3,7 @@
 namespace D20Tek.Exceptions.ThrowIf.UnitTests;
 
 [TestClass]
-public class ArgumentExceptionExtTests
+public class ArgumentExceptionExtensionsTests
 {
     [TestMethod]
     public void ThrowIfNotAssignableTo_WithSameType_DoesNotThrow()

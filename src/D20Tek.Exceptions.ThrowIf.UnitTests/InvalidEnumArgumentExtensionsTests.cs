@@ -4,7 +4,7 @@ using System.Diagnostics.CodeAnalysis;
 namespace D20Tek.Exceptions.ThrowIf.UnitTests;
 
 [TestClass]
-public class InvalidEnumArgumentExtTests
+public class InvalidEnumArgumentExtensionsTests
 {
     public enum TestType
     {

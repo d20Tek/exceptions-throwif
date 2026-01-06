@@ -3,7 +3,7 @@
 namespace D20Tek.Exceptions.ThrowIf.UnitTests;
 
 [TestClass]
-public class IndexOutOfRangeExtTests
+public class IndexOutOfRangeExtensionsTests
 {
     [TestMethod]
     public void ThrowIf_WithValidIndex_DoesNotThrowException()

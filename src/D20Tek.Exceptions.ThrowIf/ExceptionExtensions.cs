@@ -1,6 +1,6 @@
 ﻿namespace D20Tek.Exceptions.ThrowIf;
 
-public static class ExceptionExt
+public static class ExceptionExtensions
 {
     extension(Exception)
     {

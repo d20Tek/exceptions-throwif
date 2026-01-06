@@ -3,7 +3,7 @@
 namespace D20Tek.Exceptions.ThrowIf.UnitTests;
 
 [TestClass]
-public sealed class ArgumentOutOfRangeExtTests
+public sealed class ArgumentOutOfRangeExtensionsTests
 {
     [TestMethod]
     [DataRow(5, 1, 10)]

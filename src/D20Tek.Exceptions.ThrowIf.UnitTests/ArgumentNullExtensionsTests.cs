@@ -3,7 +3,7 @@
 namespace D20Tek.Exceptions.ThrowIf.UnitTests;
 
 [TestClass]
-public class ArgumentNullExtTests
+public class ArgumentNullExtensionsTests
 {
     [TestMethod]
     public void ThrowIfNullOrEmpty_WithFullArray_DoesNotThrowException()

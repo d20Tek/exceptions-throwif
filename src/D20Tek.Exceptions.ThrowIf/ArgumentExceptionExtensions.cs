@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 
 namespace D20Tek.Exceptions.ThrowIf;
 
-public static class ArgumentExceptionExt
+public static class ArgumentExceptionExtensions
 {
     extension(ArgumentException)
     {

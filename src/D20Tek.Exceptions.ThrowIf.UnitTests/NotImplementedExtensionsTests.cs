@@ -3,7 +3,7 @@
 namespace D20Tek.Exceptions.ThrowIf.UnitTests;
 
 [TestClass]
-public class NotImplementedExtTests
+public class NotImplementedExtensionsTests
 {
     [TestMethod]
     public void Throw_ThrowsNotImplementedException()

@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 
 namespace D20Tek.Exceptions.ThrowIf;
 
-public static class InvalidEnumArgumentExceptionExt
+public static class InvalidEnumArgumentExceptionExtensions
 {
     extension(InvalidEnumArgumentException)
     {

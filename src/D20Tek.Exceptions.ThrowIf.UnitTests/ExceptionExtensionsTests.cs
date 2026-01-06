@@ -3,7 +3,7 @@
 namespace D20Tek.Exceptions.ThrowIf.UnitTests;
 
 [TestClass]
-public class ExceptionExtTests
+public class ExceptionExtensionsTests
 {
     [TestMethod]
     public void ThrowIf_DoesNotThrow_WhenConditionIsFalse()

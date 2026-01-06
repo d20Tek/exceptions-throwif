@@ -2,7 +2,7 @@
 
 namespace D20Tek.Exceptions.ThrowIf;
 
-public static class IndexOutOfRangeExceptionExt
+public static class IndexOutOfRangeExceptionExtensions
 {
     extension(IndexOutOfRangeException)
     {

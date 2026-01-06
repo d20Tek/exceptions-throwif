@@ -2,7 +2,7 @@
 
 namespace D20Tek.Exceptions.ThrowIf;
 
-public static class ArgumentOutOfRangeExceptionExt
+public static class ArgumentOutOfRangeExceptionExtensions
 {
     extension(ArgumentOutOfRangeException)
     {

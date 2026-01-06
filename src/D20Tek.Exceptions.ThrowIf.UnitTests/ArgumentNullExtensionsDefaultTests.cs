@@ -3,7 +3,7 @@
 namespace D20Tek.Exceptions.ThrowIf.UnitTests;
 
 [TestClass]
-public class ArgumentNullExtDefaultTests
+public class ArgumentNullExtensionsDefaultTests
 {
     [TestMethod]
     public void ThrowIfNullOrDefault_StringIsNotNullOrEmpty_DoesNotThrow()

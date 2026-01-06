@@ -3,7 +3,7 @@
 namespace D20Tek.Exceptions.ThrowIf.UnitTests;
 
 [TestClass]
-public class KeyNotFoundExtTests
+public class KeyNotFoundExtensionsTests
 {
     [TestMethod]
     public void ThrowIf_WithExistingKey_DoesNotThrowException()

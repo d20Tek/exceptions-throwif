@@ -2,7 +2,7 @@
 
 namespace D20Tek.Exceptions.ThrowIf;
 
-public static class KeyNotFoundExt
+public static class KeyNotFoundExceptionExtensions
 {
     extension(KeyNotFoundException)
     {

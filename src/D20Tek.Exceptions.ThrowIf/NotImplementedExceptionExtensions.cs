@@ -2,7 +2,7 @@
 
 namespace D20Tek.Exceptions.ThrowIf;
 
-public static class NotImplementedExt
+public static class NotImplementedExceptionExtensions
 {
     extension(NotImplementedException)
     {

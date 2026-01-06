@@ -2,7 +2,7 @@
 
 namespace D20Tek.Exceptions.ThrowIf;
 
-public static class ArgumentNullExceptionExt
+public static class ArgumentNullExceptionExtensions
 {
     extension(ArgumentNullException)
     {
