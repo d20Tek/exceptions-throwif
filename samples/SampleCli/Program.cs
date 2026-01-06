@@ -3,22 +3,22 @@
 Console.WriteLine("ThrowIf Samples...");
 
 // Assignable type checks
-ArgumentExceptionExt.ThrowIfNotAssignableTo<Stream>(typeof(FileStream));
+ArgumentException.ThrowIfNotAssignableTo<Stream>(typeof(FileStream));
 
 try
 {
-    ArgumentExceptionExt.ThrowIfNotAssignableTo<ICloneable>(typeof(FileStream));
+    ArgumentException.ThrowIfNotAssignableTo<ICloneable>(typeof(FileStream));
 }
 catch (ArgumentException) { }
 
 // list null or empty checks
 var list = new string[] { "one", "two", "three"};
-ArgumentNullExceptionExt.ThrowIfNullOrEmpty(list);
+ArgumentNullException.ThrowIfNullOrEmpty(list);
 
 try
 {
     var empty = Array.Empty<string>();
-    ArgumentNullExceptionExt.ThrowIfNullOrEmpty(empty);
+    ArgumentNullException.ThrowIfNullOrEmpty(empty);
 }
 catch (ArgumentException) { }
 
@@ -27,23 +27,23 @@ var dict = new Dictionary<string, int>
 {
     { "one", 1 }, { "two", 2 }, { "three", 3 }
 };
-ArgumentNullExceptionExt.ThrowIfNullOrEmpty(dict);
+ArgumentNullException.ThrowIfNullOrEmpty(dict);
 
 try
 {
     var empty = new Dictionary<string, int>();
-    ArgumentNullExceptionExt.ThrowIfNullOrEmpty(empty);
+    ArgumentNullException.ThrowIfNullOrEmpty(empty);
 }
 catch (ArgumentException) { }
 
 // value null or default checks
 var text = "test string";
-ArgumentNullExceptionExt.ThrowIfNullOrDefault(text);
+ArgumentNullException.ThrowIfNullOrDefault(text);
 
 try
 {
     int x = 0;
-    ArgumentNullExceptionExt.ThrowIfNullOrDefault(x);
+    ArgumentNullException.ThrowIfNullOrDefault(x);
 }
 catch (ArgumentException) { }
 

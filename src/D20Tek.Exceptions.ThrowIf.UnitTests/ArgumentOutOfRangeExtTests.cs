@@ -15,7 +15,7 @@ public sealed class ArgumentOutOfRangeExtTests
         // arrange
 
         // act - assert
-        ArgumentOutOfRangeExceptionExt.ThrowIfOutOfRange(check, min, max);
+        ArgumentOutOfRangeException.ThrowIfOutOfRange(check, min, max);
     }
 
     [TestMethod]
@@ -28,7 +28,7 @@ public sealed class ArgumentOutOfRangeExtTests
 
         // assert
         var ex = Assert.ThrowsExactly<ArgumentOutOfRangeException>([ExcludeFromCodeCoverage] () =>
-            ArgumentOutOfRangeExceptionExt.ThrowIfOutOfRange(check, min, max));
+            ArgumentOutOfRangeException.ThrowIfOutOfRange(check, min, max));
 
         Assert.AreEqual(nameof(check), ex.ParamName);
     }
@@ -40,7 +40,7 @@ public sealed class ArgumentOutOfRangeExtTests
         var check = 3.14f;
 
         // act - assert
-        ArgumentOutOfRangeExceptionExt.ThrowIfOutOfRange(check, 1.0f, 10.0f);
+        ArgumentOutOfRangeException.ThrowIfOutOfRange(check, 1.0f, 10.0f);
     }
 
     [TestMethod]
@@ -51,7 +51,7 @@ public sealed class ArgumentOutOfRangeExtTests
 
         // act - assert
         Assert.ThrowsExactly<ArgumentOutOfRangeException>([ExcludeFromCodeCoverage] () =>
-            ArgumentOutOfRangeExceptionExt.ThrowIfOutOfRange(check, 1.0f, 10.0f));
+            ArgumentOutOfRangeException.ThrowIfOutOfRange(check, 1.0f, 10.0f));
     }
 
     [TestMethod]
@@ -61,7 +61,7 @@ public sealed class ArgumentOutOfRangeExtTests
         var check = 5;
 
         // act - assert
-        ArgumentOutOfRangeExceptionExt.ThrowIfOutOfRangeExclusive(check, 1, 10);
+        ArgumentOutOfRangeException.ThrowIfOutOfRangeExclusive(check, 1, 10);
     }
 
     [TestMethod]
@@ -77,7 +77,7 @@ public sealed class ArgumentOutOfRangeExtTests
 
         // act - assert
         var ex = Assert.ThrowsExactly<ArgumentOutOfRangeException>([ExcludeFromCodeCoverage] () =>
-            ArgumentOutOfRangeExceptionExt.ThrowIfOutOfRangeExclusive(check, min, max));
+            ArgumentOutOfRangeException.ThrowIfOutOfRangeExclusive(check, min, max));
 
         Assert.AreEqual(nameof(check), ex.ParamName);
     }
@@ -89,7 +89,7 @@ public sealed class ArgumentOutOfRangeExtTests
         var check = 3.14M;
 
         // act - assert
-        ArgumentOutOfRangeExceptionExt.ThrowIfOutOfRangeExclusive(check, 1.0M, 10.0M);
+        ArgumentOutOfRangeException.ThrowIfOutOfRangeExclusive(check, 1.0M, 10.0M);
     }
 
     [TestMethod]
@@ -100,6 +100,6 @@ public sealed class ArgumentOutOfRangeExtTests
 
         // act - assert
         Assert.ThrowsExactly<ArgumentOutOfRangeException>([ExcludeFromCodeCoverage] () =>
-            ArgumentOutOfRangeExceptionExt.ThrowIfOutOfRange(check, 1.0m, 10.0m));
+            ArgumentOutOfRangeException.ThrowIfOutOfRange(check, 1.0m, 10.0m));
     }
 }

@@ -11,7 +11,7 @@ public class ArgumentExceptionExtTests
         // arrange
 
         // act - assert
-        ArgumentExceptionExt.ThrowIfNotAssignableTo<Stream>(typeof(Stream));
+        ArgumentException.ThrowIfNotAssignableTo<Stream>(typeof(Stream));
     }
 
     [TestMethod]
@@ -20,7 +20,7 @@ public class ArgumentExceptionExtTests
         // arrange
 
         // act - assert
-        ArgumentExceptionExt.ThrowIfNotAssignableTo<Stream>(typeof(FileStream));
+        ArgumentException.ThrowIfNotAssignableTo<Stream>(typeof(FileStream));
     }
 
     [TestMethod]
@@ -31,7 +31,7 @@ public class ArgumentExceptionExtTests
 
         // act
         var ex = Assert.ThrowsExactly<ArgumentException>([ExcludeFromCodeCoverage] () =>
-            ArgumentExceptionExt.ThrowIfNotAssignableTo<string>(checkType));
+            ArgumentException.ThrowIfNotAssignableTo<string>(checkType));
 
         // assert
         Assert.AreEqual("checkType", ex.ParamName);
@@ -45,7 +45,7 @@ public class ArgumentExceptionExtTests
 
         // act
         var ex = Assert.ThrowsExactly<ArgumentNullException>([ExcludeFromCodeCoverage] () =>
-            ArgumentExceptionExt.ThrowIfNotAssignableTo<string>(nullType!));
+            ArgumentException.ThrowIfNotAssignableTo<string>(nullType!));
 
         // assert
         Assert.AreEqual("nullType", ex.ParamName);
@@ -57,7 +57,7 @@ public class ArgumentExceptionExtTests
         // arrange
 
         // act - assert
-        ArgumentExceptionExt.ThrowIfNotAssignableTo<IDisposable>(typeof(FileStream));
+        ArgumentException.ThrowIfNotAssignableTo<IDisposable>(typeof(FileStream));
     }
 
     [TestMethod]
@@ -67,7 +67,7 @@ public class ArgumentExceptionExtTests
 
         // act
         var ex = Assert.ThrowsExactly<ArgumentException>([ExcludeFromCodeCoverage] () =>
-            ArgumentExceptionExt.ThrowIfNotAssignableTo<ICloneable>(typeof(FileStream)));
+            ArgumentException.ThrowIfNotAssignableTo<ICloneable>(typeof(FileStream)));
 
         // assert
         Assert.AreEqual("typeof(FileStream)", ex.ParamName);

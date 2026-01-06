@@ -11,7 +11,7 @@ public class ArgumentNullExtDefaultTests
         // arrange
 
         // act - assert
-        ArgumentNullExceptionExt.ThrowIfNullOrDefault("valid string", "paramName");
+        ArgumentNullException.ThrowIfNullOrDefault("valid string", "paramName");
     }
 
     [TestMethod]
@@ -22,7 +22,7 @@ public class ArgumentNullExtDefaultTests
 
         // assert
         var ex = Assert.ThrowsExactly<ArgumentNullException>([ExcludeFromCodeCoverage] () =>
-            ArgumentNullExceptionExt.ThrowIfNullOrDefault(test));
+            ArgumentNullException.ThrowIfNullOrDefault(test));
 
         Assert.AreEqual(nameof(test), ex.ParamName);
     }
@@ -33,7 +33,7 @@ public class ArgumentNullExtDefaultTests
         // arrange
 
         // act - assert
-        ArgumentNullExceptionExt.ThrowIfNullOrDefault(123, "number");
+        ArgumentNullException.ThrowIfNullOrDefault(123, "number");
     }
 
     [TestMethod]
@@ -44,7 +44,7 @@ public class ArgumentNullExtDefaultTests
 
         // assert
         var ex = Assert.ThrowsExactly<ArgumentException>([ExcludeFromCodeCoverage] () =>
-            ArgumentNullExceptionExt.ThrowIfNullOrDefault(number));
+            ArgumentNullException.ThrowIfNullOrDefault(number));
 
         Assert.AreEqual(nameof(number), ex.ParamName);
     }
@@ -57,7 +57,7 @@ public class ArgumentNullExtDefaultTests
 
         // assert
         var ex = Assert.ThrowsExactly<ArgumentException>([ExcludeFromCodeCoverage] () =>
-            ArgumentNullExceptionExt.ThrowIfNullOrDefault(date));
+            ArgumentNullException.ThrowIfNullOrDefault(date));
 
         Assert.AreEqual(nameof(date), ex.ParamName);
     }
@@ -69,7 +69,7 @@ public class ArgumentNullExtDefaultTests
         var date = DateTime.Now;
 
         // act - assert
-        ArgumentNullExceptionExt.ThrowIfNullOrDefault(date);
+        ArgumentNullException.ThrowIfNullOrDefault(date);
     }
 
     [TestMethod]
@@ -80,7 +80,7 @@ public class ArgumentNullExtDefaultTests
 
         // assert
         var ex = Assert.ThrowsExactly<ArgumentException>([ExcludeFromCodeCoverage] () =>
-            ArgumentNullExceptionExt.ThrowIfNullOrDefault(id));
+            ArgumentNullException.ThrowIfNullOrDefault(id));
 
         Assert.AreEqual(nameof(id), ex.ParamName);
     }
@@ -92,7 +92,7 @@ public class ArgumentNullExtDefaultTests
         var id = Guid.NewGuid();
 
         // act - assert
-        ArgumentNullExceptionExt.ThrowIfNullOrDefault(id);
+        ArgumentNullException.ThrowIfNullOrDefault(id);
     }
 
     [TestMethod]
@@ -103,7 +103,7 @@ public class ArgumentNullExtDefaultTests
 
         // assert
         var ex = Assert.ThrowsExactly<ArgumentException>([ExcludeFromCodeCoverage] () =>
-            ArgumentNullExceptionExt.ThrowIfNullOrDefault(value));
+            ArgumentNullException.ThrowIfNullOrDefault(value));
 
         Assert.AreEqual(nameof(value), ex.ParamName);
     }

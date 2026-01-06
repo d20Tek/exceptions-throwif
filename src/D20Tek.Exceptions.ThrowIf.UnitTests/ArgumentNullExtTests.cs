@@ -12,7 +12,7 @@ public class ArgumentNullExtTests
         var list = new int[] { 3, 7, 5, 9 };
 
         // act - assert
-        ArgumentNullExceptionExt.ThrowIfNullOrEmpty(list);
+        ArgumentNullException.ThrowIfNullOrEmpty(list);
     }
 
     [TestMethod]
@@ -23,7 +23,7 @@ public class ArgumentNullExtTests
 
         // assert
         var ex = Assert.ThrowsExactly<ArgumentException>([ExcludeFromCodeCoverage] () =>
-            ArgumentNullExceptionExt.ThrowIfNullOrEmpty(list));
+            ArgumentNullException.ThrowIfNullOrEmpty(list));
 
         Assert.AreEqual(nameof(list), ex.ParamName);
     }
@@ -36,7 +36,7 @@ public class ArgumentNullExtTests
 
         // assert
         var ex = Assert.ThrowsExactly<ArgumentNullException>([ExcludeFromCodeCoverage] () =>
-            ArgumentNullExceptionExt.ThrowIfNullOrEmpty(list));
+            ArgumentNullException.ThrowIfNullOrEmpty(list));
 
         Assert.AreEqual(nameof(list), ex.ParamName);
     }
@@ -53,7 +53,7 @@ public class ArgumentNullExtTests
         };
 
         // act - assert
-        ArgumentNullExceptionExt.ThrowIfNullOrEmpty(dict);
+        ArgumentNullException.ThrowIfNullOrEmpty(dict);
     }
 
     [TestMethod]
@@ -64,7 +64,7 @@ public class ArgumentNullExtTests
 
         // assert
         var ex = Assert.ThrowsExactly<ArgumentException>([ExcludeFromCodeCoverage] () =>
-            ArgumentNullExceptionExt.ThrowIfNullOrEmpty(dict));
+            ArgumentNullException.ThrowIfNullOrEmpty(dict));
 
         Assert.AreEqual(nameof(dict), ex.ParamName);
     }
@@ -77,7 +77,7 @@ public class ArgumentNullExtTests
 
         // assert
         var ex = Assert.ThrowsExactly<ArgumentNullException>([ExcludeFromCodeCoverage] () =>
-            ArgumentNullExceptionExt.ThrowIfNullOrEmpty(dict!));
+            ArgumentNullException.ThrowIfNullOrEmpty(dict!));
 
         Assert.AreEqual(nameof(dict), ex.ParamName);
     }
