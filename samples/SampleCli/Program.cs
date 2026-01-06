@@ -66,11 +66,11 @@ try
 catch (ArgumentOutOfRangeException) { }
 
 // list index out of range checks
-IndexOutOfRangeExceptionExt.ThrowIf(list, 1);
+IndexOutOfRangeException.ThrowIf(list, 1);
 
 try
 {
-    IndexOutOfRangeExceptionExt.ThrowIf(list, 5);
+    IndexOutOfRangeException.ThrowIf(list, 5);
 }
 catch (IndexOutOfRangeException) { }
 
@@ -93,14 +93,10 @@ catch (NotImplementedException) { }
 // basic exception ThrowIf
 try
 {
-    ExceptionExt.ThrowIf<MyException>(true, "should throw custom extension");
+    Exception.ThrowIf<MyException>(true, "should throw custom extension");
 }
 catch (MyException) { }
 
-public class MyException : Exception
+public class MyException(string message) : Exception(message)
 {
-    public MyException(string message)
-        : base(message)
-    {
-    }
 }

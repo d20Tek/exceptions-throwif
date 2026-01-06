@@ -11,7 +11,7 @@ public class ExceptionExtTests
         // arrange
 
         // act - assert
-        ExceptionExt.ThrowIf<InvalidOperationException>(false, "This should not be thrown");
+        Exception.ThrowIf<InvalidOperationException>(false, "This should not be thrown");
     }
 
     [TestMethod]
@@ -21,7 +21,7 @@ public class ExceptionExtTests
 
         // assert
         var ex = Assert.ThrowsExactly<ArgumentException>([ExcludeFromCodeCoverage] () =>
-            ExceptionExt.ThrowIf<ArgumentException>(true, "Invalid argument provided"));
+            Exception.ThrowIf<ArgumentException>(true, "Invalid argument provided"));
     }
 
     [TestMethod]
@@ -31,7 +31,7 @@ public class ExceptionExtTests
 
         // assert
         var ex = Assert.ThrowsExactly<InvalidOperationException>([ExcludeFromCodeCoverage] () =>
-            ExceptionExt.ThrowIf<InvalidOperationException>(true, "Invalid operation"));
+            Exception.ThrowIf<InvalidOperationException>(true, "Invalid operation"));
     }
 
     [TestMethod]
@@ -41,7 +41,7 @@ public class ExceptionExtTests
 
         // assert
         var ex = Assert.ThrowsExactly<MissingMethodException>([ExcludeFromCodeCoverage] () =>
-            ExceptionExt.ThrowIf<ExceptionWithoutStringConstructor>(true, "No message constructor"));
+            Exception.ThrowIf<ExceptionWithoutStringConstructor>(true, "No message constructor"));
     }
 
     // Helper class for testing fallback failure behavior
@@ -57,7 +57,7 @@ public class ExceptionExtTests
         // arrange
 
         // act - assert
-        ExceptionExt.ThrowIfNot<InvalidOperationException>(true, "This should not be thrown");
+        Exception.ThrowIfNot<InvalidOperationException>(true, "This should not be thrown");
     }
 
     [TestMethod]
@@ -67,7 +67,7 @@ public class ExceptionExtTests
 
         // assert
         var ex = Assert.ThrowsExactly<ArgumentException>([ExcludeFromCodeCoverage] () =>
-            ExceptionExt.ThrowIfNot<ArgumentException>(false, "Invalid argument provided"));
+            Exception.ThrowIfNot<ArgumentException>(false, "Invalid argument provided"));
     }
 
     [TestMethod]
@@ -76,7 +76,7 @@ public class ExceptionExtTests
         // arrange
 
         // act - assert
-        ExceptionExt.ThrowIf<InvalidOperationException>(() => false, "This should not be thrown");
+        Exception.ThrowIf<InvalidOperationException>(() => false, "This should not be thrown");
     }
 
     [TestMethod]
@@ -86,7 +86,7 @@ public class ExceptionExtTests
 
         // assert
         var ex = Assert.ThrowsExactly<ArgumentException>([ExcludeFromCodeCoverage] () =>
-            ExceptionExt.ThrowIf<ArgumentException>(() => true, "Invalid argument provided"));
+            Exception.ThrowIf<ArgumentException>(() => true, "Invalid argument provided"));
     }
 
     [TestMethod]
@@ -95,7 +95,7 @@ public class ExceptionExtTests
         // arrange
 
         // act - assert
-        ExceptionExt.ThrowIfNot<InvalidOperationException>(() => true, "This should not be thrown");
+        Exception.ThrowIfNot<InvalidOperationException>(() => true, "This should not be thrown");
     }
 
     [TestMethod]
@@ -105,13 +105,11 @@ public class ExceptionExtTests
 
         // assert
         var ex = Assert.ThrowsExactly<ArgumentException>([ExcludeFromCodeCoverage] () =>
-            ExceptionExt.ThrowIfNot<ArgumentException>(() => false, "Invalid argument provided"));
+            Exception.ThrowIfNot<ArgumentException>(() => false, "Invalid argument provided"));
     }
 
-    public class MyCustomException : Exception
+    public class MyCustomException(string message) : Exception(message)
     {
-        public MyCustomException(string message)
-            :base(message) { }
     }
 
     [TestMethod]
@@ -119,11 +117,11 @@ public class ExceptionExtTests
     {
         // arrange
         int v = 12;
-        ExceptionExt.ThrowIf<MyCustomException>(() => v < 0, "Invalid value, use custom exception");
+        Exception.ThrowIf<MyCustomException>(() => v < 0, "Invalid value, use custom exception");
 
         // act - assert
         var ex = Assert.ThrowsExactly<MyCustomException>([ExcludeFromCodeCoverage] () =>
-            ExceptionExt.ThrowIf<MyCustomException>(() => v >= 10, "Invalid value, use custom exception - this one throws"));
+            Exception.ThrowIf<MyCustomException>(() => v >= 10, "Invalid value, use custom exception - this one throws"));
     }
 
 }
