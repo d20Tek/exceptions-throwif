@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel;
-using System.Runtime.CompilerServices;
 
 namespace D20Tek.Exceptions.ThrowIf;
 

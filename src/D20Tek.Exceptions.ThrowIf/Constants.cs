@@ -1,4 +1,7 @@
-﻿namespace D20Tek.Exceptions.ThrowIf;
+﻿global using System.Diagnostics.CodeAnalysis;
+global using System.Runtime.CompilerServices;
+
+namespace D20Tek.Exceptions.ThrowIf;
 
 internal static class Constants
 {
@@ -18,4 +21,10 @@ internal static class Constants
     public const string InvalidEnumMessage = "The parameter {0} has an invalid value for enum type {1}: {2}.";
     public const string DictionaryKeyMissing =
         "The key with parameter name '{0}' and value '{1}' was not found in the dictionary.";
+    public const string DisposedExceptionMessage = "The object named '{0}' has alread been disposed.";
+    public const string InvalidFormat = "The parameter '{0}' has an invalid format for type {1}: '{2}'.";
+    public const string UnauthorizedAccess = "Access to resource '{0}' is denied.";
+    public const string InvalidPath = "The path parameter '{0}' contains invalid characters.";
+    public const string MustBeNonNegative = "The parameter '{0}' must be non-negative. Value: {1}.";
+    public const string MustBePositive = "The parameter '{0}' must be positive. Value: {1}.";
 }

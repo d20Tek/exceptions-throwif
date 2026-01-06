@@ -1,6 +1,4 @@
-﻿using System.Runtime.CompilerServices;
-
-namespace D20Tek.Exceptions.ThrowIf;
+﻿namespace D20Tek.Exceptions.ThrowIf;
 
 /// <summary>
 /// Provides extension methods for <see cref="IndexOutOfRangeException"/> to validate index bounds.

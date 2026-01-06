@@ -1,6 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
-
-namespace D20Tek.Exceptions.ThrowIf;
+﻿namespace D20Tek.Exceptions.ThrowIf;
 
 /// <summary>
 /// Provides extension methods for <see cref="NotImplementedException"/> to indicate unimplemented functionality.

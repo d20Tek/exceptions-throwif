@@ -1,7 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
-using System.Runtime.CompilerServices;
-
-namespace D20Tek.Exceptions.ThrowIf;
+﻿namespace D20Tek.Exceptions.ThrowIf;
 
 /// <summary>
 /// Provides extension methods for <see cref="ArgumentException"/> to validate arguments.
@@ -36,6 +33,24 @@ public static class ArgumentExceptionExtensions
                     typeof(TBase).FullName,
                     paramName,
                     Constants.Argument_TypeNotAssignable);
+            }
+        }
+
+        /// <summary>
+        /// Throws an <see cref="ArgumentException"/> if the path contains invalid characters.
+        /// </summary>
+        /// <param name="path">The path to validate.</param>
+        /// <param name="paramName">The parameter name.</param>
+        /// <exception cref="ArgumentException">Thrown when path is invalid.</exception>
+        public static void ThrowIfInvalidPath(
+            string path,
+            [CallerArgumentExpression(nameof(path))] string? paramName = Constants.NoneParam)
+        {
+            ArgumentNullException.ThrowIfNull(path, paramName);
+            
+            if (path.IndexOfAny(Path.GetInvalidPathChars()) >= 0)
+            {
+                throw new ArgumentException(string.Format(Constants.InvalidPath, paramName), paramName);
             }
         }
 
