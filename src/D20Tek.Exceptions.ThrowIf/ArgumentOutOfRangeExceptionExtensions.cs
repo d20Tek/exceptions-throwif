@@ -1,6 +1,4 @@
-﻿using System.Numerics;
-
-namespace D20Tek.Exceptions.ThrowIf;
+﻿namespace D20Tek.Exceptions.ThrowIf;
 
 /// <summary>
 /// Provides extension methods for <see cref="ArgumentOutOfRangeException"/> to validate range constraints.
@@ -83,38 +81,6 @@ public static class ArgumentOutOfRangeExceptionExtensions
             }
         }
 
-        /// <summary>
-        /// Throws an <see cref="ArgumentOutOfRangeException"/> if the value is negative.
-        /// </summary>
-        /// <typeparam name="T">The numeric type.</typeparam>
-        /// <param name="value">The value to check.</param>
-        /// <param name="paramName">The parameter name.</param>
-        /// <exception cref="ArgumentOutOfRangeException">Thrown when value is negative.</exception>
-        public static void ThrowIfNegative<T>(
-            T value,
-            [CallerArgumentExpression(nameof(value))] string paramName = Constants.NoneParam)
-            where T : INumber<T>
-        {
-            if (T.IsNegative(value))
-            {
-                throw CreateException<T>(value, paramName, Constants.MustBeNonNegative);
-            }
-        }
-
-        /// <summary>
-        /// Throws an <see cref="ArgumentOutOfRangeException"/> if the value is negative or zero.
-        /// </summary>
-        public static void ThrowIfNegativeOrZero<T>(
-            T value,
-            [CallerArgumentExpression(nameof(value))] string paramName = Constants.NoneParam)
-            where T : INumber<T>
-        {
-            if (T.IsNegative(value) || T.IsZero(value))
-            {
-                throw CreateException<T>(value, paramName, Constants.MustBePositive);
-            }
-        }
-
         private static ArgumentOutOfRangeException CreateException<T>(
             T min, T max, string paramName, string messageFormat) =>
             new(paramName, string.Format(messageFormat, min, max));
@@ -122,9 +88,5 @@ public static class ArgumentOutOfRangeExceptionExtensions
         private static ArgumentOutOfRangeException CreateException<T>(
             T value, T min, T max, string paramName, string messageFormat) =>
             new(paramName, value, string.Format(messageFormat, value, paramName, min, max));
-
-        private static ArgumentOutOfRangeException CreateException<T>(
-            T value, string paramName, string messageFormat) =>
-            new(paramName, value, string.Format(messageFormat, paramName, value));
     }
 }

@@ -62,6 +62,7 @@ public class InvalidOperationExceptionExtensionsTests
     {
         // arrange
         int value = 10;
+        [ExcludeFromCodeCoverage]
         bool condition() => value < 0 || value > 100;
         string message = "Value out of range";
 
@@ -74,6 +75,7 @@ public class InvalidOperationExceptionExtensionsTests
     {
         // arrange
         int value = 150;
+        [ExcludeFromCodeCoverage]
         bool condition() => value < 0 || value > 100;
         string message = "Value out of range";
 
