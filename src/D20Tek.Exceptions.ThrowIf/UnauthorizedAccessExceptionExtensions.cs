@@ -30,7 +30,12 @@ public static class UnauthorizedAccessExceptionExtensions
         /// <param name="role">The user role to validate.</param>
         /// <param name="resource">The resource being accessed.</param>
         /// <exception cref="UnauthorizedAccessException">Thrown when permission is denied.</exception>
-        public static void ThrowIfUnauthorized(ClaimsPrincipal user, string role, string resource) =>
-            ThrowIfUnauthorized(user.Identity?.IsAuthenticated is false || user.IsInRole(role) is false, resource);
+        public static void ThrowIfUnauthorized(ClaimsPrincipal user, string role, string resource)
+        {
+            if (user.Identity?.IsAuthenticated is false || user.IsInRole(role) is false)
+            {
+                throw new UnauthorizedAccessException(string.Format(Constants.UnauthorizedAccess, resource));
+            }
+        }
     }
 }

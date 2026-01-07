@@ -48,7 +48,14 @@ public static class ArgumentExceptionExtensions
         {
             ArgumentNullException.ThrowIfNull(path, paramName);
             
-            if (path.IndexOfAny(Path.GetInvalidPathChars()) >= 0)
+            var directory = Path.GetDirectoryName(path);
+            if (directory?.IndexOfAny(Path.GetInvalidPathChars()) >= 0)
+            {
+                throw new ArgumentException(string.Format(Constants.InvalidPath, paramName), paramName);
+            }
+
+            var filename = Path.GetFileName(path)!;
+            if (filename.IndexOfAny(Path.GetInvalidFileNameChars()) >= 0)
             {
                 throw new ArgumentException(string.Format(Constants.InvalidPath, paramName), paramName);
             }

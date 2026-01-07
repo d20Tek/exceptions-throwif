@@ -41,9 +41,7 @@ public static class InvalidOperationExceptionExtensions
         {
             if (isDisposed)
             {
-                ObjectDisposedException.ThrowIf(
-                    isDisposed,
-                    string.Format(Constants.DisposedExceptionMessage, objectName));
+                throw new ObjectDisposedException(string.Format(Constants.DisposedExceptionMessage, objectName));
             }
         }
 

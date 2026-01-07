@@ -72,4 +72,226 @@ public class ArgumentExceptionExtensionsTests
         // assert
         Assert.AreEqual("typeof(FileStream)", ex.ParamName);
     }
+
+    [TestMethod]
+    public void ThrowIfInvalidPath_WithValidPath_DoesNotThrow()
+    {
+        // arrange
+        string path = @"C:\temp\file.txt";
+
+        // act - assert
+        ArgumentException.ThrowIfInvalidPath(path);
+    }
+
+    [TestMethod]
+    public void ThrowIfInvalidPath_WithValidRelativePath_DoesNotThrow()
+    {
+        // arrange
+        string path = @"folder\subfolder\file.txt";
+
+        // act - assert
+        ArgumentException.ThrowIfInvalidPath(path);
+    }
+
+    [TestMethod]
+    public void ThrowIfInvalidPath_WithValidUnixPath_DoesNotThrow()
+    {
+        // arrange
+        string path = "/home/user/documents/file.txt";
+
+        // act - assert
+        ArgumentException.ThrowIfInvalidPath(path);
+    }
+
+    [TestMethod]
+    public void ThrowIfInvalidPath_WithInvalidCharacters_ThrowsArgumentException()
+    {
+        // arrange
+        string path = "C:\\temp\\file<invalid>.txt";
+
+        // act
+        var ex = Assert.ThrowsExactly<ArgumentException>([ExcludeFromCodeCoverage] () =>
+            ArgumentException.ThrowIfInvalidPath(path));
+
+        // assert
+        Assert.AreEqual("path", ex.ParamName);
+        Assert.Contains("path", ex.Message);
+        Assert.Contains("invalid", ex.Message);
+    }
+
+    [TestMethod]
+    public void ThrowIfInvalidPath_WithPipeCharacter_ThrowsArgumentException()
+    {
+        // arrange
+        string path = "C:\\temp\\file|name.txt";
+
+        // act
+        var ex = Assert.ThrowsExactly<ArgumentException>([ExcludeFromCodeCoverage] () =>
+            ArgumentException.ThrowIfInvalidPath(path));
+
+        // assert
+        Assert.AreEqual("path", ex.ParamName);
+    }
+
+    [TestMethod]
+    public void ThrowIfInvalidPath_WithQuestionMarkInPath_ThrowsArgumentException()
+    {
+        // arrange
+        string path = "C:\\temp\\file?.txt";
+
+        // act
+        var ex = Assert.ThrowsExactly<ArgumentException>([ExcludeFromCodeCoverage] () =>
+            ArgumentException.ThrowIfInvalidPath(path));
+
+        // assert
+        Assert.AreEqual("path", ex.ParamName);
+    }
+
+    [TestMethod]
+    public void ThrowIfInvalidPath_WithAsteriskInPath_ThrowsArgumentException()
+    {
+        // arrange
+        string path = "C:\\temp\\*.txt";
+
+        // act
+        var ex = Assert.ThrowsExactly<ArgumentException>([ExcludeFromCodeCoverage] () =>
+            ArgumentException.ThrowIfInvalidPath(path));
+
+        // assert
+        Assert.AreEqual("path", ex.ParamName);
+    }
+
+    [TestMethod]
+    public void ThrowIfInvalidPath_WithNullPath_ThrowsArgumentNullException()
+    {
+        // arrange
+        string? nullPath = null;
+
+        // act
+        var ex = Assert.ThrowsExactly<ArgumentNullException>([ExcludeFromCodeCoverage] () =>
+            ArgumentException.ThrowIfInvalidPath(nullPath!));
+
+        // assert
+        Assert.AreEqual("nullPath", ex.ParamName);
+    }
+
+    [TestMethod]
+    public void ThrowIfInvalidPath_WithEmptyPath_DoesNotThrow()
+    {
+        // arrange
+        string path = "";
+
+        // act - assert
+        ArgumentException.ThrowIfInvalidPath(path);
+    }
+
+    [TestMethod]
+    public void ThrowIfInvalidPath_WithColonInMiddleOfPath_ThrowsArgumentException()
+    {
+        // arrange
+        string path = "C:\\temp\\file:name.txt";
+
+        // act
+        var ex = Assert.ThrowsExactly<ArgumentException>([ExcludeFromCodeCoverage] () =>
+            ArgumentException.ThrowIfInvalidPath(path));
+
+        // assert
+        Assert.AreEqual("path", ex.ParamName);
+    }
+
+    [TestMethod]
+    public void ThrowIfInvalidPath_WithQuotesInPath_ThrowsArgumentException()
+    {
+        // arrange
+        string path = "C:\\temp\\\"file\".txt";
+
+        // act
+        var ex = Assert.ThrowsExactly<ArgumentException>([ExcludeFromCodeCoverage] () =>
+            ArgumentException.ThrowIfInvalidPath(path));
+
+        // assert
+        Assert.AreEqual("path", ex.ParamName);
+    }
+
+    [TestMethod]
+    public void ThrowIfInvalidPath_WithLessThanCharacter_ThrowsArgumentException()
+    {
+        // arrange
+        string path = "C:\\temp\\<file>.txt";
+
+        // act
+        var ex = Assert.ThrowsExactly<ArgumentException>([ExcludeFromCodeCoverage] () =>
+            ArgumentException.ThrowIfInvalidPath(path));
+
+        // assert
+        Assert.AreEqual("path", ex.ParamName);
+    }
+
+    [TestMethod]
+    public void ThrowIfInvalidPath_WithInvalidFolderChar_ThrowsArgumentException()
+    {
+        // arrange
+        string path = "C:\\tem|p\\file.txt";
+
+        // act
+        var ex = Assert.ThrowsExactly<ArgumentException>([ExcludeFromCodeCoverage] () =>
+            ArgumentException.ThrowIfInvalidPath(path));
+
+        // assert
+        Assert.AreEqual("path", ex.ParamName);
+    }
+
+    [TestMethod]
+    public void ThrowIfInvalidPath_WithGreaterThanCharacter_ThrowsArgumentException()
+    {
+        // arrange
+        string path = "C:\\temp\\>file.txt";
+
+        // act
+        var ex = Assert.ThrowsExactly<ArgumentException>([ExcludeFromCodeCoverage] () =>
+            ArgumentException.ThrowIfInvalidPath(path));
+
+        // assert
+        Assert.AreEqual("path", ex.ParamName);
+    }
+
+    [TestMethod]
+    public void ThrowIfInvalidPath_WithPathContainingSpaces_DoesNotThrow()
+    {
+        // arrange
+        string path = "C:\\Program Files\\My App\\file.txt";
+
+        // act - assert
+        ArgumentException.ThrowIfInvalidPath(path);
+    }
+
+    [TestMethod]
+    public void ThrowIfInvalidPath_WithUNCPath_DoesNotThrow()
+    {
+        // arrange
+        string path = @"\\server\share\folder\file.txt";
+
+        // act - assert
+        ArgumentException.ThrowIfInvalidPath(path);
+    }
+
+    [TestMethod]
+    public void ThrowIfInvalidPath_WithPathContainingDots_DoesNotThrow()
+    {
+        // arrange
+        string path = @"C:\temp\..\other\file.txt";
+
+        // act - assert
+        ArgumentException.ThrowIfInvalidPath(path);
+    }
+
+    [TestMethod]
+    public void ThrowIfInvalidPath_WithValidDirectoryButNoFilename_DoesNotThrow()
+    {
+        // arrange
+        string path = @"C:\temp\folder\other\";
+
+        // act - assert
+        ArgumentException.ThrowIfInvalidPath(path);
+    }
 }
