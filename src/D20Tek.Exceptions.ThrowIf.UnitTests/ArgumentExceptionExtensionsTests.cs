@@ -106,6 +106,8 @@ public class ArgumentExceptionExtensionsTests
     [TestMethod]
     public void ThrowIfInvalidPath_WithInvalidCharacters_ThrowsArgumentException()
     {
+        GuardWinOs();
+
         // arrange
         string path = "C:\\temp\\file<invalid>.txt";
 
@@ -122,6 +124,8 @@ public class ArgumentExceptionExtensionsTests
     [TestMethod]
     public void ThrowIfInvalidPath_WithPipeCharacter_ThrowsArgumentException()
     {
+        GuardWinOs();
+
         // arrange
         string path = "C:\\temp\\file|name.txt";
 
@@ -136,6 +140,8 @@ public class ArgumentExceptionExtensionsTests
     [TestMethod]
     public void ThrowIfInvalidPath_WithQuestionMarkInPath_ThrowsArgumentException()
     {
+        GuardWinOs();
+
         // arrange
         string path = "C:\\temp\\file?.txt";
 
@@ -150,6 +156,8 @@ public class ArgumentExceptionExtensionsTests
     [TestMethod]
     public void ThrowIfInvalidPath_WithAsteriskInPath_ThrowsArgumentException()
     {
+        GuardWinOs();
+
         // arrange
         string path = "C:\\temp\\*.txt";
 
@@ -188,6 +196,8 @@ public class ArgumentExceptionExtensionsTests
     [TestMethod]
     public void ThrowIfInvalidPath_WithColonInMiddleOfPath_ThrowsArgumentException()
     {
+        GuardWinOs();
+
         // arrange
         string path = "C:\\temp\\file:name.txt";
 
@@ -202,6 +212,8 @@ public class ArgumentExceptionExtensionsTests
     [TestMethod]
     public void ThrowIfInvalidPath_WithQuotesInPath_ThrowsArgumentException()
     {
+        GuardWinOs();
+
         // arrange
         string path = "C:\\temp\\\"file\".txt";
 
@@ -216,6 +228,8 @@ public class ArgumentExceptionExtensionsTests
     [TestMethod]
     public void ThrowIfInvalidPath_WithLessThanCharacter_ThrowsArgumentException()
     {
+        GuardWinOs();
+
         // arrange
         string path = "C:\\temp\\<file>.txt";
 
@@ -230,6 +244,8 @@ public class ArgumentExceptionExtensionsTests
     [TestMethod]
     public void ThrowIfInvalidPath_WithInvalidFolderChar_ThrowsArgumentException()
     {
+        GuardWinOs();
+
         // arrange
         string path = "C:\\tem|p\\file.txt";
 
@@ -244,6 +260,8 @@ public class ArgumentExceptionExtensionsTests
     [TestMethod]
     public void ThrowIfInvalidPath_WithGreaterThanCharacter_ThrowsArgumentException()
     {
+        GuardWinOs();
+
         // arrange
         string path = "C:\\temp\\>file.txt";
 
@@ -293,5 +311,11 @@ public class ArgumentExceptionExtensionsTests
 
         // act - assert
         ArgumentException.ThrowIfInvalidPath(path);
+    }
+
+    [ExcludeFromCodeCoverage]
+    private static void GuardWinOs()
+    {
+        if (!OperatingSystem.IsWindows()) Assert.Inconclusive("Windows-only path rules");
     }
 }
