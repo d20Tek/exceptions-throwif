@@ -17,6 +17,9 @@
     <RepositoryType>git</RepositoryType>
     <PackageTags>exceptions; throw; throwif; throw-if</PackageTags>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <IncludeSymbols>True</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
   </PropertyGroup>
 
   <ItemGroup>
