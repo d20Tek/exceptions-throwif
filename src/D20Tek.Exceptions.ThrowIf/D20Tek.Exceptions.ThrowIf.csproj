@@ -13,6 +13,7 @@
 .Net provides a basic set of ThrowIf extension methods, and this library adds to that list.</Description>
     <PackageProjectUrl>https://github.com/d20Tek/exceptions-throwif</PackageProjectUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageIcon>package-icon.png</PackageIcon>
     <RepositoryUrl>https://github.com/d20Tek/exceptions-throwif</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>exceptions; throw; throwif; throw-if</PackageTags>
@@ -24,6 +25,10 @@
 
   <ItemGroup>
     <None Include="..\..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\..\package-icon.png">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
