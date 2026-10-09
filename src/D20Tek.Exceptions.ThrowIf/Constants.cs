@@ -17,11 +17,11 @@ internal static class Constants
     public const string ArgumentOutOfRange_MustBeInRangeExclusive =
         "The value '{0}' for parameter '{1}' must be in the range ({2}, {3}) - excluding the min max.";
     public const string IndexRangeMessage =
-        "The parameter '{0}' with index '{1}' was outside the bounds of the list {2}.";
+        "The parameter '{0}' with index '{1}' was outside the bounds of the list with count '{2}'.";
     public const string InvalidEnumMessage = "The parameter {0} has an invalid value for enum type {1}: {2}.";
     public const string DictionaryKeyMissing =
         "The key with parameter name '{0}' and value '{1}' was not found in the dictionary.";
-    public const string DisposedExceptionMessage = "The object named '{0}' has alread been disposed.";
+    public const string DisposedExceptionMessage = "The object named '{0}' has already been disposed.";
     public const string InvalidFormat = "The parameter '{0}' has an invalid format for type {1}: '{2}'.";
     public const string UnauthorizedAccess = "Access to resource '{0}' is denied.";
     public const string InvalidPath = "The path parameter '{0}' contains invalid characters.";

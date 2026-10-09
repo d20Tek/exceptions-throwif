@@ -34,12 +34,12 @@ public static class ArgumentOutOfRangeExceptionExtensions
         {
             if (min.CompareTo(max) > 0)
             {
-                throw CreateException(min, max, paramName, Constants.ArgumentOutOfRange_MinMax);
+                ThrowException(min, max, paramName, Constants.ArgumentOutOfRange_MinMax);
             }
 
             if (value.CompareTo(min) < 0 || value.CompareTo(max) > 0)
             {
-                throw CreateException(value, min, max, paramName, Constants.ArgumentOutOfRange_MustBeInRange);
+                ThrowException(value, min, max, paramName, Constants.ArgumentOutOfRange_MustBeInRange);
             }
         }
 
@@ -72,21 +72,21 @@ public static class ArgumentOutOfRangeExceptionExtensions
         {
             if (min.CompareTo(max) > 0)
             {
-                throw CreateException(min, max, paramName, Constants.ArgumentOutOfRange_MinMax);
+                ThrowException(min, max, paramName, Constants.ArgumentOutOfRange_MinMax);
             }
 
             if (value.CompareTo(min) <= 0 || value.CompareTo(max) >= 0)
             {
-                throw CreateException(value, min, max, paramName, Constants.ArgumentOutOfRange_MustBeInRangeExclusive);
+                ThrowException(value, min, max, paramName, Constants.ArgumentOutOfRange_MustBeInRangeExclusive);
             }
         }
 
-        private static ArgumentOutOfRangeException CreateException<T>(
-            T min, T max, string paramName, string messageFormat) =>
-            new(paramName, string.Format(messageFormat, min, max));
+        [DoesNotReturn]
+        private static void ThrowException<T>(T min, T max, string paramName, string messageFormat) =>
+            throw new ArgumentOutOfRangeException(paramName, string.Format(messageFormat, min, max));
 
-        private static ArgumentOutOfRangeException CreateException<T>(
-            T value, T min, T max, string paramName, string messageFormat) =>
-            new(paramName, value, string.Format(messageFormat, value, paramName, min, max));
+        [DoesNotReturn]
+        private static void ThrowException<T>(T value, T min, T max, string paramName, string messageFormat) =>
+            throw new ArgumentOutOfRangeException(paramName, value, string.Format(messageFormat, value, paramName, min, max));
     }
 }

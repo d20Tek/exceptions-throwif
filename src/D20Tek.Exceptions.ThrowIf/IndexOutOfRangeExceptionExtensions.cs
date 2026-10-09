@@ -28,18 +28,19 @@ public static class IndexOutOfRangeExceptionExtensions
         /// </code>
         /// </example>
         public static void ThrowIf<T>(
-            IEnumerable<T>? list,
+            IReadOnlyCollection<T>? list,
             int index,
             [CallerArgumentExpression(nameof(index))] string paramName = Constants.NoneParam)
         {
             ArgumentNullException.ThrowIfNull(list, nameof(list));
-            if (index < 0 || index >= list.Count())
+            if (index < 0 || index >= list.Count)
             {
-                throw CreateException(list, index, paramName);
+                ThrowException(list, index, paramName);
             }
         }
 
-        private static IndexOutOfRangeException CreateException<T>(IEnumerable<T> list, int index, string paramName) =>
-            new(string.Format(Constants.IndexRangeMessage, index, list, paramName));
+        [DoesNotReturn]
+        private static void ThrowException<T>(IReadOnlyCollection<T> list, int index, string paramName) =>
+            throw new IndexOutOfRangeException(string.Format(Constants.IndexRangeMessage, paramName, index, list.Count));
     }
 }
